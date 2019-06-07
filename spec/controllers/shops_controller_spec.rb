@@ -25,4 +25,38 @@ RSpec.describe ShopsController, type: :controller do
       expect(response).to render_template :show
     end
   end
+
+  describe 'GET #new' do
+    before { get :new }
+
+    it 'renders new view' do
+      expect(response).to render_template :new
+    end
+  end
+
+  describe 'POST #create' do
+    context 'with valid attributes' do
+      it 'saves a new shop into db' do
+        expect { post :create, params: { shop: attributes_for(:shop) }, format: :js}.to change(Shop, :count).by(1)
+      end
+
+      it 'redirects to shop' do
+        post :create, params: { shop: attributes_for(:shop) }
+        expect(response).to redirect_to assigns(:shop)
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'does not save the shop' do
+        expect do
+          post :create, params: { shop: attributes_for(:shop, :invalid) }, format: :js
+        end.to_not change(Shop, :count)
+      end
+
+      it 'renders create' do
+        post :create, params: { shop: attributes_for(:shop, :invalid) }, format: :js
+        expect(response).to render_template :create
+      end
+    end
+  end
 end
