@@ -7,6 +7,7 @@ FactoryBot.define do
     color { "MyString" }
     price { 1.5 }
     amount { 1 }
-    references { "" }
+
+    shop
   end
 end

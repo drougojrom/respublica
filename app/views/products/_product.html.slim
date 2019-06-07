@@ -1,0 +1,10 @@
+tr data-link="#{product_path(product)}"
+  td #{product.id}
+  td.align-middle
+    = content_tag :span, product.articul
+  td #{product.title}
+  td #{product.weight}кг
+  td #{product.size}
+  td #{product.color}
+  td #{product.price} руб.
+  td #{product.amount} ед.
