@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.string :color
       t.float :price
       t.integer :amount
-      t.references :shop, foreign_key: true
+      t.references :shop, foreign_key: true, index: true
 
       t.timestamps
     end
