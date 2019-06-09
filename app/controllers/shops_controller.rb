@@ -12,6 +12,11 @@ class ShopsController < ApplicationController
     redirect_to @shop, notice: 'Магазин успешно создан' if @shop.save
   end
 
+  def destroy
+    shop.destroy
+    redirect_to shops_path, notice: "Магазин успешно удален"
+  end
+
   private
 
   helper_method :shop
