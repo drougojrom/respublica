@@ -1,0 +1,18 @@
+.jumbotron
+  h2 class="display=4" #{shop.title}
+  p.lead #{shop.address}
+table.table.table-hover.products
+  thead
+    tr
+      th scope="col" #
+      th scope="col" Артикул
+      th scope="col" Название
+      th scope="col" Вес
+      th scope="col" Размер
+      th scope="col" Цвет
+      th scope="col" Цена
+      th scope="col" Остаток в магазине
+  tbody
+    = render shop.products
+
+=link_to 'Назад', shops_path, class: "btn btn-primary"

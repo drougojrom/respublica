@@ -1,0 +1,7 @@
+tr data-link="#{shop_path(shop)}"
+  td #{shop.id}
+  td.align-middle
+    = content_tag :span, shop.title
+  td #{shop.address}
+  td #{shop.metro_station.nil? ? "Станция отсутствует" : shop.metro_station}
+  td #{shop.city}
