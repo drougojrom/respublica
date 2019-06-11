@@ -1,0 +1,86 @@
+h2 Задать параметры для отображения
+p
+  = form_for :search_products, url: search_products_path, method: :get do |f|
+    .search-product
+      = f.fields_for :search_attributes do |s|
+        .form-group
+          = s.label :articul
+          = s.text_field :articul, class: "form-control"
+
+        .form-group
+          = s.label :title
+          = s.text_field :title, class: "form-control"
+
+        .form-group
+          = s.label :price
+          = s.text_field :price, class: "form-control"
+
+        .form-group
+          = s.label :shop_title
+          p
+            = s.select((:shop_id), options_for_select(shops), {:include_hidden => false}, multiple: true)
+
+        .form-group
+          = s.label :weight
+          = s.text_area :weight, class: "form-control"
+
+        .form-group
+          = s.label :size
+          = s.text_area :size, class: "form-control"
+
+        .form-group
+          = s.label :color
+          = s.text_area :color, class: "form-control"
+
+        .form-group
+          = s.label :amount
+          = s.text_area :amount, class: "form-control"
+
+    .form-group
+      = f.fields_for :report_attributes do |r|
+        .form-group
+          = r.label :include_articul
+          = r.check_box :articul
+        .form-group
+          = r.label :include_title
+          = r.check_box :title
+        .form-group
+          = r.label :include_price
+          = r.check_box :price
+        .form-group
+          = r.label :include_shop_title
+          = r.check_box :shop_title
+        .form-group
+          = r.label :include_weight
+          = r.check_box :weight
+        .form-group
+          = r.label :include_size
+          = r.check_box :size
+        .form-group
+          = r.label :include_color
+          = r.check_box :color
+        .form-group
+          = r.label :include_amount
+          = r.check_box :amount
+
+    p= f.submit 'Поиск по зананным параметрам', class: "btn btn-primary", data: { disable_with: false }
+
+- unless @products.nil?
+  -if @products.empty?
+    h2 No campaigns found matching your query.
+  - else
+    h2 Search results
+    table.table.table-hover.products
+      thead
+        tr
+          th scope="col" #
+          th scope="col" Артикул
+          th scope="col" Название
+          th scope="col" Вес
+          th scope="col" Размер
+          th scope="col" Цвет
+          th scope="col" Цена
+          th scope="col" Остаток в магазине
+          th scope="col" Название магазина
+      tbody
+        = render @products

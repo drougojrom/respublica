@@ -1,0 +1,44 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Products") do |sheet|
+  # this is the head row of your spreadsheet
+
+  sheet.add_row @rows
+
+  @products.each do |p|
+    rows_array = []
+    if @rows.include? "articul"
+      rows_array.push(p.articul)
+    end
+
+    if @rows.include? "title"
+      rows_array.push(p.title)
+    end
+
+    if @rows.include? "price"
+      rows_array.push(p.price)
+    end
+
+    if @rows.include? "shop_title"
+      rows_array.push(p.shop.title)
+    end
+
+    if @rows.include? "weight"
+      rows_array.push(p.weight)
+    end
+
+    if @rows.include? "size"
+      rows_array.push(p.size)
+    end
+
+    if @rows.include? "color"
+      rows_array.push(p.color)
+    end
+
+    if @rows.include? "amount"
+      rows_array.push(p.amount)
+    end
+
+    sheet.add_row rows_array
+  end
+end

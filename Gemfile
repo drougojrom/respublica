@@ -18,6 +18,8 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-generators'
+gem 'axlsx', '= 2.0.1'
+gem 'axlsx_rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -25,6 +27,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  gem 'pry'
 end
 
 group :development do
