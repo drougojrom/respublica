@@ -19,8 +19,24 @@ wb.add_worksheet(name: "Products") do |sheet|
       rows_array.push(p.price)
     end
 
-    if @rows.include? "shop title"
+    if @rows.include? "shop_title"
       rows_array.push(p.shop.title)
+    end
+
+    if @rows.include? "weight"
+      rows_array.push(p.weight)
+    end
+
+    if @rows.include? "size"
+      rows_array.push(p.size)
+    end
+
+    if @rows.include? "color"
+      rows_array.push(p.color)
+    end
+
+    if @rows.include? "amount"
+      rows_array.push(p.amount)
     end
 
     sheet.add_row rows_array
