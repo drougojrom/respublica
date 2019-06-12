@@ -12,7 +12,14 @@ class ProductsController < ApplicationController
 
   def filter
     if params[:search_products].presence
-      @products ||= Product.search(filter_product_params)
+      @products = FilterProducts.call(articul: filter_product_params["articul"],
+                                      title: filter_product_params["title"],
+                                      shop_id: filter_product_params["shop_id"],
+                                      color: filter_product_params["color"],
+                                      price: filter_product_params["price"],
+                                      weight: filter_product_params["weight"],
+                                      size: filter_product_params["size"],
+                                      amount: filter_product_params["amount"])
       @rows = filter_report_attributes
       render xlsx: "search", template: "products/search.xlsx.axlsx", filename: "search.xlsx"
     end
@@ -36,11 +43,11 @@ class ProductsController < ApplicationController
   end
 
   def filter_product_params
-    filter_params[:search_attributes].delete_if { |k, v| v.empty? }
+    filter_params[:search_attributes].delete_if { |_, v| v.empty? }
   end
 
   def filter_report_attributes
-    filter_params[:report_attributes].to_h.map { |k, v| k if v == "1" }.reject { |i| i.nil? }
+    filter_params[:report_attributes].to_h.map { |k, v| k if v == "1" }.reject(&:nil?)
   end
 
   def product_params
