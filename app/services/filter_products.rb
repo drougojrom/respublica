@@ -9,6 +9,7 @@ class FilterProducts
     result = result.by_weight(weight) if weight
     result = result.by_size(size) if size
     result = result.by_amount(amount) if amount
+
     result
   end
 end
