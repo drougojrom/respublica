@@ -1,0 +1,36 @@
+.shop-errors
+  = render 'shared/errors', resource: product
+
+= form_with model: [:shop, product], remote: true, data: { type: :json }, class: "form-horizontal center" do |f|
+  .shop
+    .form-group
+      = f.label :articul
+      = f.text_field :articul, class: "form-control"
+
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: "form-control"
+
+    .form-group
+      = f.label :weight
+      = f.text_field :weight, class: "form-control"
+
+    .form-group
+      = f.label :size
+      = f.text_field :size, class: "form-control"
+
+    .form-group
+      = f.label :color
+      = f.text_field :color, class: "form-control"
+
+    .form-group
+      = f.label :price
+      = f.text_field :price, class: "form-control"
+
+    .form-group
+      = f.label :amount
+      = f.text_field :amount, class: "form-control"
+
+  p= f.submit 'Создать продукт', class: "btn btn-primary"
+
+  p= link_to 'Назад', shop_path(shop)

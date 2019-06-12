@@ -1,6 +1,7 @@
 .jumbotron
   h2 class="display=4" #{shop.title}
   p.lead #{shop.address}
+  = link_to "Создать новый продукт", new_shop_product_path(shop), class: "btn btn-primary"
 table.table.table-hover.products
   thead
     tr
