@@ -9,5 +9,6 @@ RSpec.describe Shop, type: :model do
 
   describe 'associations' do
     it { should have_many :products }
+    it { should have_many :product_availabilities }
   end
 end
