@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   has_one :product_availability
-  has_one :shop, through: :product_availability, dependent: :destroy
+  has_one :shop, through: :product_availability
 
   validates :title, :vendor_code, :amount, :color, :price, presence: true
 
