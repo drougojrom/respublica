@@ -5,10 +5,10 @@ RSpec.describe ProductsController, type: :controller do
   let(:shop) { create :shop }
 
   describe 'GET #search' do
-    before { get :search }
+    before { get :filter }
 
     it 'renders search view' do
-      expect(response).to render_template :search
+      expect(response).to render_template :filter
     end
   end
 

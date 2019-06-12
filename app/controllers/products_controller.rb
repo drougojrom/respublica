@@ -10,10 +10,10 @@ class ProductsController < ApplicationController
     end
   end
 
-  def search
+  def filter
     if params[:search_products].presence
-      @products ||= Product.search(search_product_params)
-      @rows = search_report_attributes
+      @products ||= Product.search(filter_product_params)
+      @rows = filter_report_attributes
       render xlsx: "search", template: "products/search.xlsx.axlsx", filename: "search.xlsx"
     end
   end
@@ -30,17 +30,17 @@ class ProductsController < ApplicationController
     @product ||= params[:id] ? Product.find(params[:id]) : Product.new
   end
 
-  def search_params
+  def filter_params
     params.require(:search_products).permit(search_attributes: {}, report_attributes: {},
                                             shop_id: [])
   end
 
-  def search_product_params
-    search_params[:search_attributes].delete_if { |k, v| v.empty? }
+  def filter_product_params
+    filter_params[:search_attributes].delete_if { |k, v| v.empty? }
   end
 
-  def search_report_attributes
-    search_params[:report_attributes].to_h.map { |k, v| k if v == "1" }.reject { |i| i.nil? }
+  def filter_report_attributes
+    filter_params[:report_attributes].to_h.map { |k, v| k if v == "1" }.reject { |i| i.nil? }
   end
 
   def product_params

@@ -5,5 +5,5 @@ class Product < ApplicationRecord
   validates :title, :articul, :amount, :color,
             :price, :size, :weight, presence: true
 
-  scope :search, -> (params) { where(params) }
+  scope :filter, -> (params) { where(params) }
 end
