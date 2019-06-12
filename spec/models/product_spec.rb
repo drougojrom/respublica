@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   describe 'validations' do
-    it { should validate_presence_of :articul }
+    it { should validate_presence_of :vendor_code }
     it { should validate_presence_of :title }
     it { should validate_presence_of :price }
     it { should validate_presence_of :amount }

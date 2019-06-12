@@ -1,8 +1,8 @@
 .search-product
   = f.fields_for :search_attributes do |s|
     .form-group
-      = s.label :articul
-      = s.text_field :articul, class: "form-control"
+      = s.label :vendor_code
+      = s.text_field :vendor_code, class: "form-control"
 
     .form-group
       = s.label :title

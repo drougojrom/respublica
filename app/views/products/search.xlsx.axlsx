@@ -7,8 +7,8 @@ wb.add_worksheet(name: "Products") do |sheet|
 
   @products.each do |p|
     rows_array = []
-    if @rows.include? "articul"
-      rows_array.push(p.articul)
+    if @rows.include? "vendor_code"
+      rows_array.push(p.vendor_code)
     end
 
     if @rows.include? "title"

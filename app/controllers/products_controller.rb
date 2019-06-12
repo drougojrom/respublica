@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def filter
     if params[:search_products].presence
-      @products = FilterProducts.call(articul: filter_product_params["articul"],
+      @products = FilterProducts.call(vendor_code: filter_product_params["vendor_code"],
                                       title: filter_product_params["title"],
                                       shop_id: filter_product_params["shop_id"],
                                       color: filter_product_params["color"],
@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:articul, :title, :weight,
+    params.require(:product).permit(:vendor_code, :title, :weight,
                                     :size, :price, :amount, :color)
   end
 end

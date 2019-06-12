@@ -2,9 +2,9 @@ class Product < ApplicationRecord
   has_one :product_availability
   has_one :shop, through: :product_availability
 
-  validates :title, :articul, :amount, :color, :price, presence: true
+  validates :title, :vendor_code, :amount, :color, :price, presence: true
 
-  scope :by_articul, -> (articul) { where(articul: articul) }
+  scope :by_vendor_code, -> (vendor_code) { where(vendor_code: vendor_code) }
   scope :by_title, -> (title) { where(title: title) }
   scope :by_shop, -> (shop_id) { joins(:shop).where(id: shop_id) }
   scope :by_color, -> (color) { where(color: color) }

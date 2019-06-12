@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    articul { "MyString" }
+    vendor_code { "MyString" }
     title { "MyString" }
     weight { 1.5 }
     size { 1.5 }
