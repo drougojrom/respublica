@@ -15,5 +15,8 @@ table.table.table-hover.products
       th scope="col" Остаток в магазине
   tbody
     = render shop.products
-
-=link_to 'Назад', shops_path, class: "btn btn-primary"
+p=link_to 'Назад', shops_path, class: "btn btn-primary"
+p=link_to 'Удалить магазин и все продукты в нем',
+        shop_path(shop), method: :delete,
+        class: "btn btn-danger",
+        data: { confirm: "Вы уверены?" }
