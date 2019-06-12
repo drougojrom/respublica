@@ -1,4 +1,4 @@
-tr data-link="#{shop_product_path(product)}"
+tr data-link="#{shop_product_path(shop_id: product.shop.id, id: product.id)}"
   td #{product.id}
   td.align-middle
     = content_tag :span, product.vendor_code

@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def filter
-    if params[:search_products].presence
+    if params[:filter_products].presence
       @products = FilterProducts.call(vendor_code: filter_product_params["vendor_code"],
                                       title: filter_product_params["title"],
                                       shop_id: filter_product_params["shop_id"],
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
                                       size: filter_product_params["size"],
                                       amount: filter_product_params["amount"])
       @rows = filter_report_attributes
-      render xlsx: "search", template: "products/filter.xlsx.axlsx", filename: "filter.xlsx"
+      render xlsx: "filter", template: "products/filter.xlsx.axlsx", filename: "filter.xlsx"
     end
   end
 
@@ -38,12 +38,11 @@ class ProductsController < ApplicationController
   end
 
   def filter_params
-    params.require(:search_products).permit(search_attributes: {}, report_attributes: {},
-                                            shop_id: [])
+    params.require(:filter_products).permit(filter_attributes: {}, report_attributes: {})
   end
 
   def filter_product_params
-    filter_params[:search_attributes].delete_if { |_, v| v.empty? }
+    filter_params[:filter_attributes].delete_if { |_, v| v.empty? }
   end
 
   def filter_report_attributes

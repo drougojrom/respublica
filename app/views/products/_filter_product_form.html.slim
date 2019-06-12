@@ -1,0 +1,34 @@
+.filter-product
+  = f.fields_for :filter_attributes do |s|
+    .form-group
+      = s.label :vendor_code
+      = s.text_field :vendor_code, class: "form-control"
+
+    .form-group
+      = s.label :title
+      = s.text_field :title, class: "form-control"
+
+    .form-group
+      = s.label :price
+      = s.text_field :price, class: "form-control"
+
+    .form-group
+      = s.label :shop_title
+      p
+        = s.select((:shop_id), options_for_select(shops), {:include_hidden => false}, multiple: true)
+
+    .form-group
+      = s.label :weight
+      = s.text_area :weight, class: "form-control"
+
+    .form-group
+      = s.label :size
+      = s.text_area :size, class: "form-control"
+
+    .form-group
+      = s.label :color
+      = s.text_area :color, class: "form-control"
+
+    .form-group
+      = s.label :amount
+      = s.text_area :amount, class: "form-control"

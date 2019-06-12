@@ -1,8 +1,8 @@
 h2 Задать параметры для отображения
 p
-  = form_for :search_products, url: search_products_path, method: :get do |f|
+  = form_for :filter_products, url: filter_products_path, method: :get do |f|
 
-    = render partial: 'search_product_form', locals: { f: f }
+    = render partial: 'filter_product_form', locals: { f: f }
     = render partial: 'report_attributes_form', locals: { f: f }
 
     p= f.submit 'Поиск по зананным параметрам', class: "btn btn-primary", data: { disable_with: false }
