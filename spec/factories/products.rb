@@ -9,5 +9,9 @@ FactoryBot.define do
     amount { 1 }
 
     shop
+
+    trait :invalid do
+      title { nil }
+    end
   end
 end
