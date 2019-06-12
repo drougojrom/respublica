@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
                                       size: filter_product_params["size"],
                                       amount: filter_product_params["amount"])
       @rows = filter_report_attributes
-      render xlsx: "search", template: "products/search.xlsx.axlsx", filename: "search.xlsx"
+      render xlsx: "search", template: "products/filter.xlsx.axlsx", filename: "filter.xlsx"
     end
   end
 
