@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    articul { "MyString" }
+    vendor_code { "MyString" }
     title { "MyString" }
     weight { 1.5 }
     size { 1.5 }
@@ -9,5 +9,9 @@ FactoryBot.define do
     amount { 1 }
 
     shop
+
+    trait :invalid do
+      title { nil }
+    end
   end
 end

@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :shops
-  resources :products, only: %i[show new create] do
-    collection do
-      get :search
-    end
+  resources :shops, only: %i[index new show create destroy] do
+    resources :products, only: %i[show new create]
   end
+
+  get 'filter_products', to: 'products#filter'
 
   root to: 'shops#index'
 end

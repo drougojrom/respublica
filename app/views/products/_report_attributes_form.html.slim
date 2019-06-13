@@ -1,0 +1,27 @@
+.report_attributes
+  .form-group
+    = f.fields_for :report_attributes do |r|
+      .form-group
+        = r.label :include_vendor_code
+        = r.check_box :vendor_code
+      .form-group
+        = r.label :include_title
+        = r.check_box :title
+      .form-group
+        = r.label :include_price
+        = r.check_box :price
+      .form-group
+        = r.label :include_shop_title
+        = r.check_box :shop_title
+      .form-group
+        = r.label :include_weight
+        = r.check_box :weight
+      .form-group
+        = r.label :include_size
+        = r.check_box :size
+      .form-group
+        = r.label :include_color
+        = r.check_box :color
+      .form-group
+        = r.label :include_amount
+        = r.check_box :amount

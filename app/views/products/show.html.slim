@@ -1,0 +1,6 @@
+.jumbotron.shop-jumbotron
+  h2 class="display=4" #{product.title}
+  h3 #{product.vendor_code}
+  p.lead #{product.amount}/#{product.price}руб.
+
+p=link_to "Назад к магазину", shop_path(product.shop), class: "btn btn-primary"
